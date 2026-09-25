@@ -17,6 +17,7 @@ def calculer_concentration_finale(Ci, k, t):
     k : constante empirique (L/(mg*min))
     t : temps (min)
     
+    Valeur retournée :
     La valeur que l'on a retournée est la concentration finale (Cf) en mg/L.:
     Cf : concentration finale (mg/L)
     """
@@ -43,6 +44,7 @@ def calculer_la_demi_vie(k):
     Paramètres :
     k : constante empirique (L/(mg*min))
     
+    Valeur retournée :
     La valeur que l'on a retournée est la demi-vie (t_demi_vie) en minutes.:
     t_demi_vie : demi-vie (min)
     """
@@ -90,4 +92,41 @@ def convertir_concentration(valeur, unité_source, unité_cible):
     raise ValueError("Conversion non supportée pour ces unités.")
 
 valeur_convertie = convertir_concentration(Cf, unité_source, unité_cible)
-print(f"Valeur convertie : {valeur_convertie} {unité_cible}")
+print(f"Valeur convertie : {round(valeur_convertie, 4)} {unité_cible}")
+
+#--------Partie 4 : Calcul de la vitesse de réaction ( v ) --------#
+
+seuil_min = float(input("Entrez le seuil minimum pour la concentration initiale (mg/L) : "))
+seuil_max = float(input("Entrez le seuil maximum pour la concentration initiale (mg/L) : "))
+    
+def evaluer_niveau (concentration, seuil_min, seuil_max):
+    """
+    Cette fonction évalue le niveau réactionnel (v) en utilisant la formule :
+    v = (Ci - Cf) / t
+    
+    Paramètres :
+    Ci : concentration initiale (mg/L)
+    Cf : concentration finale (mg/L)
+    t : temps (min)
+    seuil_min : seuil minimum pour la concentration initiale (mg/L)
+    seuil_max : seuil maximum pour la concentration initiale (mg/L) 
+
+    Valeur retournée :
+    La valeur que l'on a retournée est la vitesse de réaction (v) en mg/(L*min).
+    La chaine de caractères qui contient :
+     "INSUFFISANT" si C < seuil_min
+     "OPTIMAL" si seuil_min <= C <= seuil_max
+     "TOXIQUE / CRITIQUE" si C > seuil_max
+
+    """
+    if seuil_min >= seuil_max:
+        raise ValueError("Le seuil minimum doit être inférieur au seuil maximum.")
+    if concentration < seuil_min:
+        return "INSUFFISANT"
+    elif concentration <= seuil_max:
+        return "OPTIMAL"
+    else:
+        return "TOXIQUE / CRITIQUE" 
+
+niveau = evaluer_niveau(Cf, seuil_min, seuil_max)
+print("Niveau évalué : ", niveau)
