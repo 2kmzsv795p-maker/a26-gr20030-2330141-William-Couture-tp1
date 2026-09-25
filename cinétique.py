@@ -1,10 +1,10 @@
-#-------Partie 1 : Calcul de la concentration finale ( Cf ) --------#
+ #-------Partie 1 : Calcul de la concentration finale ( Cf ) --------#
 
 import math
 
-Ci= float(input("Entrez la concentration initiale (Ci) en mg/L : "))  #Demande à l'utilisateur d'entrer la concentration initiale
-k= float(input("Entrez la constante empirique (k) en L/(mg*min) : "))  #Demande à l'utilisateur d'entrer la constante empirique
-t= float(input("Entrez le temps (t) en minutes : "))  #Demande à l'utilisateur d'entrer le temps        
+Ci= float(input("Entrez la concentration initiale (Ci) en mg/L : "))  #Demande d'entrer la concentration initiale
+k= float(input("Entrez la constante empirique (k) en L/(mg*min) : "))  #Demande d'entrer la constante empirique
+t= float(input("Entrez le temps (t) en minutes : "))  #Demande d'entrer le temps        
 
 def calculer_concentration_finale(Ci, k, t):
 
@@ -80,7 +80,6 @@ def convertir_concentration(valeur, unité_source, unité_cible):
         raise ValueError("Les unités fournies sont invalides. Elles doivent être en mg/L ou µg/mL !")
     if cible not in unités_valides:
         raise ValueError("Les unités fournies sont invalides. Elles doivent être en mg/L ou µg/mL !")
-
     if source == cible:
         return valeur
 
