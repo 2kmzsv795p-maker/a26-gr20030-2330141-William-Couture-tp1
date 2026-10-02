@@ -6,7 +6,7 @@ Ci= float(input("Entrez la concentration initiale (Ci) en mg/L : "))  #Demande d
 k= float(input("Entrez la constante empirique (k) en L/(mg*min) : "))  #Demande d'entrer la constante empirique
 t= float(input("Entrez le temps (t) en minutes : "))  #Demande d'entrer le temps        
 
-def calculer_concentration_finale(Ci, k, t):
+def calculer_concentration(Ci, k, t):
 
     """
     Cette fonction calcule la concentration finale (Cf) en utilisant la formule :
@@ -30,12 +30,12 @@ def calculer_concentration_finale(Ci, k, t):
     
     return Ci * math.exp(-k * t)  #Calcul de la concentration finale en utilisant la formule donnée
 
-Cf = calculer_concentration_finale(Ci, k, t)
+Cf = calculer_concentration(Ci, k, t)
 print("La concentration finale est de : ", round(Cf,4), " mg/L")
 
 #--------Partie 2 : Calcul de la demi vie ( t_demi_vie ) --------#
 
-def calculer_la_demi_vie(k):
+def calculer_demi_vie(k):
 
     """
     Cette fonction calcule la demi-vie (t_demi_vie) en utilisant la formule :
@@ -53,7 +53,7 @@ def calculer_la_demi_vie(k):
     
     return math.log(2) / k  #Calcul de la demi-vie en utilisant la formule donnée   
 
-t_demi_vie =calculer_la_demi_vie(k)
+t_demi_vie =calculer_demi_vie(k)
 print("La demi-vie est de : ", round(t_demi_vie ,4), "minutes")
 
 
