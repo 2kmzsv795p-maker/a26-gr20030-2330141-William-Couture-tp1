@@ -1,7 +1,7 @@
-from cinétique import calculer_concentration
-from cinétique import calculer_demi_vie
+from cinetique import calculer_concentration
+from cinetique import calculer_demi_vie
 
-#--------Partie 5 : Simulation de l'évolution de la concentration --------#
+#--------Partie 6 : Simulation de l'évolution de la concentration --------#
 def simuler_evolution(c0, k, durée_heures):
     """
     Cette fonction simule l'évolution de la concentration à chaque heure
@@ -17,12 +17,12 @@ def simuler_evolution(c0, k, durée_heures):
     concentrations = []    # ici , on va pouvoir ajouter nos valeur dans notre liste
 
     for heure in range(durée_heures + 1):    # cela nous permet d'ajouter une heure et de vraiment avoir un liste ou chaque valeur est suivi d'une valeur ou la concentration est 1h plus tard et d'inclure t=0 dans la simulation.
-     c = calculer_concentration(c0, k, heure) # 'heure' est créé automatiquement par la boucle for : il prend 0,1,2,... à chaque tour.
-    concentrations.append(c)     #ici, append nous permet d'ajouter les valeur de "c" dans la liste concentrations
+       c = calculer_concentration(c0, k, heure) # 'heure' est créé automatiquement par la boucle for : il prend 0,1,2,... à chaque tour.
+       concentrations.append(c)     #ici, append nous permet d'ajouter les valeur de "c" dans la liste concentrations
     return concentrations
 
 
-#--------Partie 6 : Analyse des résultats simulés --------#
+#--------Partie 7 : Analyse des résultats simulés --------#
 
 def analyser_resultats(liste_concentrations, seuil_min, seuil_max):
     """
@@ -57,7 +57,7 @@ def analyser_resultats(liste_concentrations, seuil_min, seuil_max):
         if seuil_min <= c <= seuil_max:
             heures_optimal += 1
 
-    rapport = ("Analyse des résultats\n----------------------\nConcentration maximale (Cmax) : "
+    rapport = ("Analyse des résultats\n----------------------\nConcentration maximale (Cmax) : "       # cette partie nous aide seulement pour visualiser l'affichage et nous donner exactement le résultat que l'on veut.
                + str(concentration_maximale)
                + " mg/L\nHeures en zone OPTIMAL : "
                + str(heures_optimal)
@@ -65,8 +65,6 @@ def analyser_resultats(liste_concentrations, seuil_min, seuil_max):
 
     return rapport
 
-liste_concentrations = simuler_evolution(c0=50, k=0.1, durée_heures=10)
-resultat_analyse = analyser_resultats(liste_concentrations, seuil_min=15, seuil_max=30)
-print(resultat_analyse)
+
 
 

@@ -1,5 +1,6 @@
 import math
 
+#--------Partie 1 : Calcul de la concentration --------#
 
 def calculer_concentration(Ci, k, t):
     """
@@ -23,6 +24,7 @@ def calculer_concentration(Ci, k, t):
 
     return Ci * math.exp(-k * t)
 
+#--------Partie 2 : Simulation de l'évolution de la concentration --------#
 
 def calculer_demi_vie(k):
     """
@@ -40,6 +42,7 @@ def calculer_demi_vie(k):
 
     return math.log(2) / k
 
+#--------Partie 3 : Conversion d'unités --------#
 
 def convertir_concentration(valeur, unité_source, unité_cible):
     """
@@ -61,6 +64,7 @@ def convertir_concentration(valeur, unité_source, unité_cible):
 
     raise ValueError("Conversion non supportée pour ces unités.")
 
+#--------Partie 4 : Évaluation du niveau réactionnel --------#
 
 def evaluer_niveau(concentration, seuil_min, seuil_max):
     """
@@ -74,6 +78,7 @@ def evaluer_niveau(concentration, seuil_min, seuil_max):
         return "OPTIMAL"
     return "TOXIQUE / CRITIQUE"
 
+#--------Partie 5 : Simulation de l'évolution de la concentration --------#
 
 def main():
     Ci = float(input("Entrez la concentration initiale (Ci) en mg/L : "))
